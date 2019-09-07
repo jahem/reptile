@@ -38,18 +38,21 @@ class grasp extends Command {
      */
     public function handle() {
         //
-        for ($index = 1; $index < 2000; $index++) {
+//        for ($index = 1; $index < 2000; $index++) {
+            $index = 1;
             $apiUrl = sprintf($this->url, $index, \Str::uuid());
+            echo $apiUrl;
             $client = new Client();
-            sleep(30);
+//            sleep(30);
             $res = $client->request('GET', $apiUrl);
             if ($res->getStatusCode() == 200) {
+                \Log::info($res->getBody()->getContents());
                 \Storage::disk('public')->put($index . '.mp3', $res->getBody()->getContents());
             } else {
                 echo "服务器错误";
                 die;
             }
         }
-    }
+//    }
 
 }
