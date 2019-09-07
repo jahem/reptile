@@ -39,15 +39,12 @@ class grasp extends Command {
     public function handle() {
         //
 //        for ($index = 1; $index < 2000; $index++) {
-            $index = 1;
-            $apiUrl = sprintf($this->url, $index, \Str::uuid());
-            echo $apiUrl;
+            $apiUrl = "https://www.ysx8.net/play/flw.asp?url=玄幻小说/2009/凡人修仙传/凡人修仙传40.mp3&jiidx=/play_1836_49_1_41.html&jiids=/play_1836_49_1_39.html&id=1836&ji=40&said=49";
             $client = new Client();
 //            sleep(30);
             $res = $client->request('GET', $apiUrl);
             if ($res->getStatusCode() == 200) {
                 \Log::info($res->getBody()->getContents());
-                \Storage::disk('public')->put($index . '.mp3', $res->getBody()->getContents());
             } else {
                 echo "服务器错误";
                 die;
