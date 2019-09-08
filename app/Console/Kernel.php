@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
 //        $schedule->command("test")->everyMinute();
-        $schedule->command("banma:update")->dailyAt("10:37");
+        $schedule->command("banma:update")->dailyAt("10:07");
     }
 
     /**
