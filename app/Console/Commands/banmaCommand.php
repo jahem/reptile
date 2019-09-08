@@ -38,7 +38,10 @@ class banmaCommand extends Command
     public function handle()
     {
         //
-        file_get_contents("https://m.allwin368.com/Index/ajaxbanner?null=yes");
-        file_get_contents("https://m.allwin368.com/Active3/loginActive");
+        $re = file_get_contents("https://m.allwin368.com/Index/ajaxbanner?null=yes");
+        \Log::info($re);
+        $re = file_get_contents("https://m.allwin368.com/Active3/loginActive");
+        \Log::info($re);
+        \Log::info("斑马访问成功");
     }
 }
